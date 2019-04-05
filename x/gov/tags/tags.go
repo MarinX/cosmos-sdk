@@ -11,10 +11,8 @@ var (
 	ActionProposalRejected = "proposal-rejected"
 
 	Action            = sdk.TagAction
-	Proposer          = "proposer"
+	Sender            = sdk.TagSender
 	ProposalID        = "proposal-id"
 	VotingPeriodStart = "voting-period-start"
-	Depositor         = "depositor"
-	Voter             = "voter"
 	ProposalResult    = "proposal-result"
 )

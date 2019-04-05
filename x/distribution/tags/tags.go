@@ -7,5 +7,5 @@ import (
 
 var (
 	Validator = sdk.TagSrcValidator
-	Delegator = sdk.TagDelegator
+	Sender    = sdk.TagSender
 )

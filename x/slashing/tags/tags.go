@@ -8,6 +8,6 @@ import (
 var (
 	ActionValidatorUnjailed = "validator-unjailed"
 
-	Action    = sdk.TagAction
-	Validator = "validator"
+	Action = sdk.TagAction
+	Sender = sdk.TagSender
 )

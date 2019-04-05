@@ -279,7 +279,7 @@ func subtractCoins(ctx sdk.Context, ak auth.AccountKeeper, addr sdk.AccAddress, 
 
 	newCoins := oldCoins.Sub(amt) // should not panic as spendable coins was already checked
 	err := setCoins(ctx, ak, addr, newCoins)
-	tags := sdk.NewTags(TagKeySender, addr.String())
+	tags := sdk.NewTags(TagSender, addr.String())
 
 	return newCoins, tags, err
 }

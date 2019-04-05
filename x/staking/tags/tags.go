@@ -10,6 +10,7 @@ var (
 	ActionCompleteRedelegation = "complete-redelegation"
 
 	Action       = sdk.TagAction
+	Sender       = sdk.TagSender
 	SrcValidator = sdk.TagSrcValidator
 	DstValidator = sdk.TagDstValidator
 	Delegator    = sdk.TagDelegator

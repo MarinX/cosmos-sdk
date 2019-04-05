@@ -33,7 +33,7 @@ func handleMsgModifyWithdrawAddress(ctx sdk.Context, msg types.MsgSetWithdrawAdd
 	}
 
 	tags := sdk.NewTags(
-		tags.Delegator, []byte(msg.DelegatorAddress.String()),
+		tags.Sender, []byte(msg.DelegatorAddress.String()),
 	)
 	return sdk.Result{
 		Tags: tags,
@@ -48,7 +48,7 @@ func handleMsgWithdrawDelegatorReward(ctx sdk.Context, msg types.MsgWithdrawDele
 	}
 
 	tags := sdk.NewTags(
-		tags.Delegator, []byte(msg.DelegatorAddress.String()),
+		tags.Sender, []byte(msg.DelegatorAddress.String()),
 		tags.Validator, []byte(msg.ValidatorAddress.String()),
 	)
 	return sdk.Result{
@@ -64,7 +64,7 @@ func handleMsgWithdrawValidatorCommission(ctx sdk.Context, msg types.MsgWithdraw
 	}
 
 	tags := sdk.NewTags(
-		tags.Validator, []byte(msg.ValidatorAddress.String()),
+		tags.Sender, []byte(msg.ValidatorAddress.String()),
 	)
 	return sdk.Result{
 		Tags: tags,
