@@ -143,6 +143,7 @@ func handleMsgCreateValidator(ctx sdk.Context, msg types.MsgCreateValidator, k k
 	}
 
 	tags := sdk.NewTags(
+		tags.Sender, msg.DelegatorAddress.String(),
 		tags.DstValidator, msg.ValidatorAddress.String(),
 		tags.Moniker, msg.Description.Moniker,
 		tags.Identity, msg.Description.Identity,
@@ -193,7 +194,7 @@ func handleMsgEditValidator(ctx sdk.Context, msg types.MsgEditValidator, k keepe
 	k.SetValidator(ctx, validator)
 
 	tags := sdk.NewTags(
-		tags.DstValidator, msg.ValidatorAddress.String(),
+		tags.Sender, msg.ValidatorAddress.String(),
 		tags.Moniker, description.Moniker,
 		tags.Identity, description.Identity,
 	)
@@ -219,7 +220,7 @@ func handleMsgDelegate(ctx sdk.Context, msg types.MsgDelegate, k keeper.Keeper) 
 	}
 
 	tags := sdk.NewTags(
-		tags.Delegator, msg.DelegatorAddress.String(),
+		tags.Sender, msg.DelegatorAddress.String(),
 		tags.DstValidator, msg.ValidatorAddress.String(),
 	)
 
@@ -243,7 +244,7 @@ func handleMsgUndelegate(ctx sdk.Context, msg types.MsgUndelegate, k keeper.Keep
 
 	finishTime := types.MsgCdc.MustMarshalBinaryLengthPrefixed(completionTime)
 	tags := sdk.NewTags(
-		tags.Delegator, msg.DelegatorAddress.String(),
+		tags.Sender, msg.DelegatorAddress.String(),
 		tags.SrcValidator, msg.ValidatorAddress.String(),
 		tags.EndTime, completionTime.Format(time.RFC3339),
 	)
@@ -268,7 +269,7 @@ func handleMsgBeginRedelegate(ctx sdk.Context, msg types.MsgBeginRedelegate, k k
 
 	finishTime := types.MsgCdc.MustMarshalBinaryLengthPrefixed(completionTime)
 	resTags := sdk.NewTags(
-		tags.Delegator, msg.DelegatorAddress.String(),
+		tags.Sender, msg.DelegatorAddress.String(),
 		tags.SrcValidator, msg.ValidatorSrcAddress.String(),
 		tags.DstValidator, msg.ValidatorDstAddress.String(),
 		tags.EndTime, completionTime.Format(time.RFC3339),

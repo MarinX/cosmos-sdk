@@ -48,7 +48,7 @@ func handleMsgWithdrawDelegatorReward(ctx sdk.Context, msg types.MsgWithdrawDele
 	}
 
 	tags := sdk.NewTags(
-		tags.Sender, []byte(msg.DelegatorAddress.String()),
+		tags.Sender, msg.DelegatorAddress.String(),
 		tags.Validator, []byte(msg.ValidatorAddress.String()),
 	)
 	return sdk.Result{
